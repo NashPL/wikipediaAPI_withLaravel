@@ -23,11 +23,11 @@
         </div>
       </header>
 
-      <main role="main" class="inner cover container-fluid">
+      <main role="main" class="inner container-fluid">
       <div class="row">
       @foreach ($articles as $ar)
-      <div class="col-6">
-        <h5 class="h5">{{$ar['title']}}</h5>
+      <div class="col-12 border border-warning m-1 p-3">
+        <h5 class="h5 text-nowrap">{{$ar['title']}}</h5>
         <p class="lead">
           <a href="/view/{{$ar['id']}}" class="btn btn-secondary">Learn more</a>
         </p>

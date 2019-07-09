@@ -28,8 +28,20 @@ class Wikipedia
         return $content;
     }
 
-    public function getArticle($id)
+    public function getPageById($id) : array
     {
-        
+        if (!is_int($id) || $id < 1 || is_null($id) || empty($id)) {
+            throw new \InvalidArgumentException('Please provide a valid page ID.');
+        }
+
+        $url = '?action=query&format=json&prop=description%7Ccategories%7Ccontributors%7Cinfo%7Cextracts&pageids='. $id;
+        $content = file_get_contents($this->baseURL . $url);
+        $content = json_decode($content, true);
+        $content = $content['query']['pages'][$id];
+        //print("<pre>".print_r($content,true)."</pre>");
+        //exit;
+
+        return $content;
+
     }
 }

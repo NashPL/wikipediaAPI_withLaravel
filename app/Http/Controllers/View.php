@@ -6,11 +6,10 @@ use App\Lib\API\Wikipedia;
 
 class View extends Controller
 {
-    public function index()
+    public function index($id)
     {
         $wikipedia = new Wikipedia();
-        $articles = $wikipedia->getRandomArticlesList(6);
-
-        return view('view', ['pageTitle' => "View"]);
+        $page = $wikipedia->getPageById((int)$id);
+        return view('view', ['pageTitle' => "View", "page" => $page]);
     }
 }

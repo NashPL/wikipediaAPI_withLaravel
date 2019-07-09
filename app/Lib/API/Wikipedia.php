@@ -38,8 +38,6 @@ class Wikipedia
         $content = file_get_contents($this->baseURL . $url);
         $content = json_decode($content, true);
         $content = $content['query']['pages'][$id];
-        //print("<pre>".print_r($content,true)."</pre>");
-        //exit;
 
         return $content;
 

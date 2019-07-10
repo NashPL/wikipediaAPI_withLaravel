@@ -28,7 +28,12 @@ class Wikipedia
         return $content;
     }
 
-    public function getPageById($id) : array
+    /**
+     * Function to get Article data from the API
+     * @param Integer A ID of a page
+     * @return Array List of Attributes fetched from the API. 
+     */
+    public function getArticlesById($id) : array
     {
         if (!is_int($id) || $id < 1 || is_null($id) || empty($id)) {
             throw new \InvalidArgumentException('Please provide a valid page ID.');
